@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Test Quiz</title></head>
+<body>
+<h1>Simple Math Quiz</h1>
+<h2>What is 2 + 2?</h2>
+<form action="http://127.0.0.1:5000/submit" method="post">
+<input type="text" name="answer" required>
+<input type="hidden" name="question_id" value="834">
+<input type="hidden" name="url" value="{{ request.path }}">
+<button type="submit">Submit Answer</button>
+</form>
+<a href="/static/sample.csv" download>sample.csv</a>
+</body>
+</html>
