@@ -2,7 +2,7 @@ services:
   - type: web
     name: llm-quiz-api
     env: python
-    pythonVersion: 3.11.9   # <-- This is the proper way
+    pythonVersion: 3.13.4   # keep 3.13 if you upgrade pandas
     buildCommand: |
       apt-get update
       apt-get install -y chromium chromium-driver
