@@ -2,7 +2,7 @@ services:
   - type: web
     name: llm-quiz-api
     env: python
-    pythonVersion: 3.11.9       # <-- Add this line
+    pythonVersion: 3.11.9   # <-- This is the proper way
     buildCommand: |
       apt-get update
       apt-get install -y chromium chromium-driver
