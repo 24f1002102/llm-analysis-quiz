@@ -16,81 +16,74 @@ The app also includes endpoints for:
 
 ## Folder Structure
 llm_quiz_24f1002102/
-├── app.py
-├── test_api.py
-├── requirements.txt
-├── templates/quiz_template.html
-├── static/sample.csv
-├── downloads/
-└── LICENSE
-
-yaml
-Copy code
+├── app.py  
+├── test_api.py  
+├── requirements.txt  
+├── templates/quiz_template.html  
+├── static/sample.csv  
+├── downloads/  
+└── LICENSE  
 
 ---
 
 ## Setup Instructions
 
-1. **Install dependencies**
+### 1. Install dependencies
 ```bash
 pip install -r requirements.txt
-Chrome + ChromeDriver
+```
 
+### 2. Install Chrome + ChromeDriver
 Install Google Chrome and the matching ChromeDriver in PATH.
 
 Ensure Selenium can launch headless Chrome.
 
-Add OpenAI API Key
+### 3. Add OpenAI API Key
+Replace `YOUR_OPENAI_API_KEY` in `app.py` with your OpenAI API key.
 
-Replace YOUR_OPENAI_API_KEY in app.py with your OpenAI API key.
-
-Run Flask App
-
-bash
-Copy code
+### 4. Run Flask App
+```bash
 python app.py
-Test /quiz endpoint
+```
 
-bash
-Copy code
+### 5. Test /quiz endpoint
+```bash
 python test_api.py
-Access local quiz form
+```
 
-Open templates/quiz_template.html in a browser.
+### 6. Access local quiz form
+Open `templates/quiz_template.html` in a browser.
 
-Test local submit endpoint.
-
-Endpoints
-/quiz (POST)
-Accepts JSON: { "email": "...", "secret": "...", "url": "..." }
-
-Solves quiz dynamically, returns JSON steps with answers and optional plots.
-
-/submit (POST)
-Receives manual submissions from forms.
-
-Returns confirmation JSON.
-
-/llm_test (POST)
-Simulates system/user prompt evaluation.
-
-Use to test viva prompts.
-
-Notes
-Payload size limit: 1MB.
-
-Selenium retries 3 times per page load.
-
-Sequential quiz solving handled automatically for multiple URLs.
-
-Attachments (plots) encoded as base64.
-
-sql
-Copy code
+Test local `/submit` endpoint.
 
 ---
 
-## **LICENSE** (MIT License)
+## Endpoints
+
+### **POST /quiz**
+Accepts JSON:
+```json
+{ "email": "...", "secret": "...", "url": "..." }
+```
+Solves the quiz dynamically and returns JSON answers & optional plots.
+
+### **POST /submit**
+Receives manual submission form inputs.
+
+### **POST /llm_test**
+Simulates prompt evaluation for viva testing.
+
+---
+
+## Notes
+- Max payload size: **1MB**
+- Selenium retries **3 times** per page load
+- Automatically solves multi-step quizzes
+- Plots sent as **base64 images**
+
+---
+
+## LICENSE (MIT License)
 
 ```text
 MIT License
@@ -112,3 +105,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+```
