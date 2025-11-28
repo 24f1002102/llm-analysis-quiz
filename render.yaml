@@ -2,6 +2,7 @@ services:
   - type: web
     name: llm-quiz-api
     env: python
+    pythonVersion: 3.11.9       # <-- Add this line
     buildCommand: |
       apt-get update
       apt-get install -y chromium chromium-driver
@@ -9,6 +10,3 @@ services:
       pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     plan: free
-    envVars:
-      PYTHON_VERSION: 3.11.9
-
